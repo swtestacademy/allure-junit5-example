@@ -9,25 +9,16 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <selenium.version>3.14.0</selenium.version>
-        <junit.jupiter.version>5.3.1</junit.jupiter.version>
-        <junit.vintage.version>5.3.1</junit.vintage.version>
-        <junit.platform.version>1.3.1</junit.platform.version>
-        <allure-maven.version>2.8</allure-maven.version>
-        <allure-junit5.version>2.7.0</allure-junit5.version>
-        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-        <aspectj.version>1.9.1</aspectj.version>
-
-        <encoding>UTF-8</encoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.encoding>UTF-8</project.encoding>
-        <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
-
-        <java.version>1.8</java.version>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <java.version>11</java.version>
+        <selenium.version>4.0.0-beta-3</selenium.version>
+        <junit.jupiter.version>5.8.0-M1</junit.jupiter.version>
+        <junit.platform.version>1.8.0-M1</junit.platform.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <allure-junit5.version>2.13.10</allure-junit5.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <aspectj.version>1.9.6</aspectj.version>
+        <junit-platform-surefire-provider.version>1.3.1</junit-platform-surefire-provider.version>
     </properties>
 
     <dependencies>
@@ -47,11 +38,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.jupiter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>${junit.vintage.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.platform</groupId>
@@ -90,7 +76,7 @@
                         </property>
                     </properties>
                     <includes>
-                        <include>**/*Test*.java</include>
+                        <include>tests**</include>
                     </includes>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -116,12 +102,12 @@
                     <dependency>
                         <groupId>org.junit.platform</groupId>
                         <artifactId>junit-platform-surefire-provider</artifactId>
-                        <version>1.1.0</version>
+                        <version>${junit-platform-surefire-provider.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
-                        <version>5.1.0</version>
+                        <version>${junit.jupiter.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -135,8 +121,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
