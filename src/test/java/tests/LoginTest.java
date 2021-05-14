@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest {
         page.getPage(HomePage.class)
             .givenIAmAtHomePage()
             .whenIGoToLoginPage()
-            .andIloginToN11("onur@swtestacademy.com", "11223344")
+            .andILoginToN11("onur@swtestacademy.com", "11223344")
             .thenIVerifyLogEntryFailMessage();
     }
 
@@ -30,7 +30,7 @@ public class LoginTest extends BaseTest {
         page.getPage(HomePage.class)
             .givenIAmAtHomePage()
             .whenIGoToLoginPage()
-            .andIloginToN11("", "")
+            .andILoginToN11("", "")
             .ThenIVerifyLoginUserNameErrorMessage("Lütfen e-posta adresinizi girin.")
             .thenIVerifyPasswordErrorMessage("Bu alanın doldurulması zorunludur.");
     }

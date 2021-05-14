@@ -29,7 +29,7 @@ public class LoginPage extends BasePage {
     }
 
     //*********Page Methods*********
-    public LoginPage andIloginToN11(String pusername, String ppassword) {
+    public LoginPage andILoginToN11(String pusername, String ppassword) {
         writeText(username, pusername);
         writeText(password, ppassword);
         click(loginButton);
